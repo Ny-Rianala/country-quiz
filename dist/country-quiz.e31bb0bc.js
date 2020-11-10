@@ -29793,14 +29793,19 @@ function App() {
   const ListOfCountry = async () => {
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data);
-    setCountries(data);
+    const n = 4;
+    console.log(data.sort(() => 1 - Math.random()).slice(0, n));
+    setCountries(data.sort(() => 1 - Math.random()).slice(0, n));
   };
 
   (0, _react.useEffect)(() => {
     ListOfCountry();
   }, []);
-  return /*#__PURE__*/_react.default.createElement("div", null, countries.map((country, index) => {
+  const [ques, setQues] = (0, _react.useState)("Wich country this flag belong to");
+  console.log(ques);
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, ques), /*#__PURE__*/_react.default.createElement("img", {
+    src: "https://restcountries.eu/data/atg.svg"
+  }), countries.map((country, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: index
     }, /*#__PURE__*/_react.default.createElement("button", null, country.capital));
@@ -29849,7 +29854,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61152" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65243" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

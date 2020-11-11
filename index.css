@@ -3,7 +3,7 @@ img {
 }
 
 
-button {
+.buttonOption {
     width: 250px;
     height: 60px;
     margin-top: 1rem;
@@ -12,6 +12,6 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.buttonOption:hover {
     background-color: rgb(245, 245, 28);
 }

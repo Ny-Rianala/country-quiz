@@ -29772,7 +29772,7 @@ if ("development" === 'production') {
 } else {
   module.exports = require('./cjs/react-dom.development.js');
 }
-},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"App.js":[function(require,module,exports) {
+},{"./cjs/react-dom.development.js":"node_modules/react-dom/cjs/react-dom.development.js"}],"Options.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29786,35 +29786,129 @@ function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
-function App() {
+function Options() {
   const [countries, setCountries] = (0, _react.useState)([]);
-  const url = "https://restcountries.eu/rest/v2/";
+  const [ques, setQues] = (0, _react.useState)(0);
+  const url = "https://restcountries.eu/rest/v2/all";
 
   const ListOfCountry = async () => {
     const res = await fetch(url);
     const data = await res.json();
     const n = 4;
-    console.log(data.sort(() => 1 - Math.random()).slice(0, n));
-    setCountries(data.sort(() => 1 - Math.random()).slice(0, n));
+    console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
+    setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
   };
 
   (0, _react.useEffect)(() => {
     ListOfCountry();
   }, []);
-  const [ques, setQues] = (0, _react.useState)("Wich country this flag belong to");
-  console.log(ques);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, ques), /*#__PURE__*/_react.default.createElement("img", {
-    src: "https://restcountries.eu/data/atg.svg"
-  }), countries.map((country, index) => {
+
+  function handleClick(e) {
+    e.preventDefault();
+    console.log("I was clicked");
+  }
+
+  const questions = [{
+    nameOfCapital: "is Capital of"
+  }, {
+    nameOfCapital: "Which country this flag belong to"
+  }]; // console.log(ques);
+
+  const randomQuestions = e => {
+    const len = questions.length;
+    console.log(len);
+    setQues(Math.floor(Math.random() * len));
+  };
+
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    onClick: randomQuestions
+  }, "Next"), countries.map((country, index) => {
     return /*#__PURE__*/_react.default.createElement("div", {
       key: index
-    }, /*#__PURE__*/_react.default.createElement("button", null, country.capital));
+    }, /*#__PURE__*/_react.default.createElement("div", null, questions[0] && /*#__PURE__*/_react.default.createElement("p", null, country.capital, " ", questions[ques].nameOfCapital), questions[1] && /*#__PURE__*/_react.default.createElement("img", {
+      src: country.flag
+    })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+      className: "buttonOption",
+      onClick: handleClick
+    }, country.name)));
   }));
+}
+
+var _default = Options;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"Answer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _Options = _interopRequireDefault(require("./Options"));
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Answer(props) {
+  return /*#__PURE__*/_react.default.createElement(_Options.default, {
+    onClick: handleClick
+  });
+}
+
+var _default = _Options.default;
+exports.default = _default;
+},{"./Options":"Options.js","react":"node_modules/react/index.js"}],"Questions.js":[function(require,module,exports) {
+// import React, { useState , useEffect} from "react"
+// function Questions() {
+//     const questions = [
+//         {
+//             nameOfCapital : "is Capital of"
+//         },
+//         {
+//             nameOfCapital : "Which country this flag belong to"
+//         }
+//     ]
+// const [ques, setQues] = useState(0)
+// // console.log(ques);
+// const randomQuestions = e => {
+//     const len = questions.length;
+//     console.log(len);
+//     setQues(Math.floor(Math.random() * len));
+// };
+// return (
+//     <> 
+//         <div>{questions[ques].nameOfCapital}</div>
+//         <button onClick={randomQuestions}>Next</button>
+//     </>
+// )
+// }
+// export default Questions
+},{}],"App.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _Answer = _interopRequireDefault(require("./Answer"));
+
+var _Questions = _interopRequireDefault(require("./Questions"));
+
+var _Options = _interopRequireDefault(require("./Options"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function App() {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Options.default, null));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Answer":"Answer.js","./Questions":"Questions.js","./Options":"Options.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29854,7 +29948,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65243" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51116" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

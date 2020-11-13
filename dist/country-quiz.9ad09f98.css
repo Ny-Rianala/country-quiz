@@ -2,6 +2,12 @@ img {
     width: 50%;
 }
 
+@media(min-width:1000px) {
+    img{
+        width: 50%;
+    }
+}
+
 
 .buttonOption {
     width: 250px;

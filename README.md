@@ -67,10 +67,11 @@ Template for your readme :
 
 Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
 
--   Where can I see your demo?
--   What was your experience?
--   What have you learned/improved?
--   Your wisdom? :)
+1 - Demo  
+    - Firstly we can see four buttons, each buttons contains a name of country. 
+    - Secondly, when we click to one of the buttons, there will be a button that will appear, this button will lead us to the next question.  
+2 - Experience, improvement  
+    - There are few things that they are not really familiar to me before, but I tried to use to Them in this project such as how to random things. Then, listening for an event in react, for example when the button gets clicked. 
 
 ### Built With
 

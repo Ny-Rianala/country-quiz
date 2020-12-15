@@ -4,7 +4,7 @@ img {
 
 @media(min-width:1000px) {
     img{
-        width: 50%;
+        width: 20%;
     }
 }
 

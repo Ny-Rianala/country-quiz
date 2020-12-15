@@ -29795,7 +29795,8 @@ function Options() {
 
   const ListOfCountry = async () => {
     const res = await fetch(url);
-    const data = await res.json();
+    const data = await res.json(); //minimize the value from the whole array
+
     const n = 4;
     console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
     setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
@@ -29803,7 +29804,7 @@ function Options() {
 
   (0, _react.useEffect)(() => {
     ListOfCountry();
-  }, [0]); // Array of an object for the questions
+  }, []); // Array of an object for the questions
 
   const questions = [{
     nameOfCapital: "is Capital of"
@@ -29822,21 +29823,26 @@ function Options() {
     e.preventDefault();
     setIsOpen(!isOpen);
     console.log(isOpen);
-  } //if the next button is clicked  , we should have random
+  }
 
+  if (!countries.length) return null; //if thes next button is clicked  , we should have random
 
-  return /*#__PURE__*/_react.default.createElement("div", null, countries.map((country, index) => {
-    return /*#__PURE__*/_react.default.createElement("div", {
-      key: index
-    }, /*#__PURE__*/_react.default.createElement("div", null, questions[0] && /*#__PURE__*/_react.default.createElement("p", null, country.capital, " ", questions[ques].nameOfCapital), questions[1] && /*#__PURE__*/_react.default.createElement("img", {
-      src: country.flag
-    }), questions[ques].nameOfCountry), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
-      className: "buttonOption",
-      onClick: handleClick
-    }, country.name), isOpen && /*#__PURE__*/_react.default.createElement("button", {
-      onClick: randomQuestions
-    }, "Next")));
-  }));
+  console.log(countries);
+  const random = Math.floor(Math.random() * 2);
+  console.log(random);
+  console.log(questions[1].nameOfCountry);
+  console.log(countries[1].flag);
+  console.log(questions[1]);
+  return /*#__PURE__*/_react.default.createElement("div", null, random === 0 ? questions[0] && /*#__PURE__*/_react.default.createElement("p", null, " ", countries[0].capital, " ", questions[0].nameOfCapital, " ") : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, questions[1].nameOfCountry, " "), /*#__PURE__*/_react.default.createElement("img", {
+    src: countries[1].flag
+  })), countries.map((country, index) => /*#__PURE__*/_react.default.createElement("div", {
+    key: index
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "buttonOption",
+    onClick: handleClick
+  }, " ", country.name), " ", isOpen && /*#__PURE__*/_react.default.createElement("button", {
+    onClick: randomQuestions
+  }, "Next")))));
 }
 
 var _default = Options;
@@ -29901,7 +29907,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51337" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56079" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

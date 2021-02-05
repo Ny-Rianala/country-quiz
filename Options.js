@@ -6,6 +6,8 @@ function Options() {
     const [countries, setCountries] = useState([]);
     const [ques, setQues] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [next, setNext] = useState(true);
+    const [answer, setAnswer] = useState(false);
 
     const url = "https://restcountries.eu/rest/v2/all";
 
@@ -15,7 +17,7 @@ function Options() {
         const data = await res.json();
         //minimize the value from the whole array
         const n = 4;
-        console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
+        // console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
         setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
 
     }
@@ -46,8 +48,7 @@ function Options() {
     //if the one of the list is clicked, this is to show the next button
     function handleClick(e) {
         e.preventDefault();
-        setIsOpen(!isOpen)
-        console.log(isOpen);
+       setIsOpen(true);
     }
 
     if (!countries.length) return null
@@ -61,29 +62,39 @@ function Options() {
     console.log(countries[1].flag);
     console.log(questions[1]);
 
-  return (
-    <div>
-      {random === 0
-          ? (questions[0] && <p> {countries[0].capital} {questions[0].nameOfCapital} </p>)
-          : (<div><p>{questions[1].nameOfCountry} </p><img src={countries[1].flag} /></div>)
-      }
+    function handleFalseAnswer(e) {
+      e.preventDefault();
+      setAnswer(true);
+      console.log(answer);
+    }
 
-      {countries.map((country, index) => (
-        <div key={index}>
-          
-          <div>
-            <button className="buttonOption"
-              onClick={handleClick} > {country.name}
-            </button> {
-              isOpen &&
-              <button onClick={randomQuestions} >
-                Next
-              </button>}
-          </div>
+  return (
+    <div  className="quiz-card">
+      <div className="containerCard">
+        <div className="questionCard">
+        {random === 0
+            ? (questions[0] && <h2> {countries[0].capital} {questions[0].nameOfCapital} </h2>)
+            : (<div className="question"><img src={countries[1].flag} /><h2>{questions[1].nameOfCountry} </h2></div>)
+        }
         </div>
-      ))}
-    </div>
+        {countries.map((country, index) => (
+          <div key={index}>
+            <div>
+              <button className="buttonOption"
+                onClick={handleClick} >{country.name}
+              </button> 
+            </div>
+          </div>
+        ))}
+              {
+                isOpen  &&
+              <button className="next" onClick={handleFalseAnswer}>
+                  Next
+              </button>}
+        </div>
+
+      </div>
   )
 }
             
-         export default Options;
+    export default Options;

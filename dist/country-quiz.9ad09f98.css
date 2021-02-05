@@ -1,5 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+}
+
 img {
-    width: 50%;
+    width: 25%;
+    position: relative;
+    left: 7%;
+    padding-top: 40px;
 }
 
 @media(min-width:1000px) {
@@ -8,18 +22,110 @@ img {
     }
 }
 
+.container {
+    background-image: url("/background.e3ad310f.png");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+h1 {
+    color: #ffff;
+    text-transform: capitalize;
+    margin-top: 90px;
+    margin-left: 13px;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.quiz-card {
+    background: #fff;
+    border-radius: 24px;
+    margin-left: 10px;
+    padding-left: -1px;
+    margin-right: 10px;
+    padding-bottom: 75px;
+}
+
+.questionCard {
+    width: 400px;
+    display: grid;
+    grid-template-rows: 30% 55% 15%;
+}
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+h2 {
+    color: #2F527B;
+    font-size: 24px;
+    line-height: 36px;
+    padding-left: 23px;
+    padding-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+
+.next {
+    padding-left: 37px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 37px;
+    width: 100px;
+    height: 50px;
+    background: #F9A826;
+    box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+    border-radius: 12px;
+    border: none;
+    position: absolute;
+    left: 67%;
+    top: 90%;
+    color: #ffff;
+}
 
 .buttonOption {
-    width: 250px;
-    height: 60px;
+    width: 335px;
+    height: 65px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
     margin-top: 1rem;
+    margin-right: 0;
+    margin-left: 21px;
     border: none;
-    border-radius: 6%;
+    border-radius: 12px;
+    color: #6066D0;
     cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .buttonOption:hover {
-    background-color: rgb(245, 245, 28);
+    background-color: #F9A826;
+    color: #ffff;
+}
+
+
+.containerTry {
+    background-color: white;
+}
+
+.headerimg {
+    position: absolute;
+    top: 65%;
+    left: 71%;
 }
 
 /*# sourceMappingURL=/country-quiz.9ad09f98.css.map */

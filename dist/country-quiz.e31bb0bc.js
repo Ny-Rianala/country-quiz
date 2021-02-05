@@ -29791,14 +29791,16 @@ function Options() {
   const [countries, setCountries] = (0, _react.useState)([]);
   const [ques, setQues] = (0, _react.useState)(0);
   const [isOpen, setIsOpen] = (0, _react.useState)(false);
+  const [next, setNext] = (0, _react.useState)(true);
+  const [answer, setAnswer] = (0, _react.useState)(false);
   const url = "https://restcountries.eu/rest/v2/all"; // Fetch data from api
 
   const ListOfCountry = async () => {
     const res = await fetch(url);
     const data = await res.json(); //minimize the value from the whole array
 
-    const n = 4;
-    console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
+    const n = 4; // console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
+
     setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
   };
 
@@ -29821,8 +29823,7 @@ function Options() {
 
   function handleClick(e) {
     e.preventDefault();
-    setIsOpen(!isOpen);
-    console.log(isOpen);
+    setIsOpen(true);
   }
 
   if (!countries.length) return null; //if thes next button is clicked  , we should have random
@@ -29833,19 +29834,58 @@ function Options() {
   console.log(questions[1].nameOfCountry);
   console.log(countries[1].flag);
   console.log(questions[1]);
-  return /*#__PURE__*/_react.default.createElement("div", null, random === 0 ? questions[0] && /*#__PURE__*/_react.default.createElement("p", null, " ", countries[0].capital, " ", questions[0].nameOfCapital, " ") : /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("p", null, questions[1].nameOfCountry, " "), /*#__PURE__*/_react.default.createElement("img", {
+
+  function handleFalseAnswer(e) {
+    e.preventDefault();
+    setAnswer(true);
+    console.log(answer);
+  }
+
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "quiz-card"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "containerCard"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "questionCard"
+  }, random === 0 ? questions[0] && /*#__PURE__*/_react.default.createElement("h2", null, " ", countries[0].capital, " ", questions[0].nameOfCapital, " ") : /*#__PURE__*/_react.default.createElement("div", {
+    className: "question"
+  }, /*#__PURE__*/_react.default.createElement("img", {
     src: countries[1].flag
-  })), countries.map((country, index) => /*#__PURE__*/_react.default.createElement("div", {
+  }), /*#__PURE__*/_react.default.createElement("h2", null, questions[1].nameOfCountry, " "))), countries.map((country, index) => /*#__PURE__*/_react.default.createElement("div", {
     key: index
   }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("button", {
     className: "buttonOption",
     onClick: handleClick
-  }, " ", country.name), " ", isOpen && /*#__PURE__*/_react.default.createElement("button", {
-    onClick: randomQuestions
-  }, "Next")))));
+  }, country.name)))), isOpen && /*#__PURE__*/_react.default.createElement("button", {
+    className: "next",
+    onClick: handleFalseAnswer
+  }, "Next")));
 }
 
 var _default = Options;
+exports.default = _default;
+},{"react":"node_modules/react/index.js"}],"Results.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+// import Options from "./Options"
+function Results() {
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "containerTry"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got corrects answer"), /*#__PURE__*/_react.default.createElement("button", null, "Try Again"));
+}
+
+var _default = Results;
 exports.default = _default;
 },{"react":"node_modules/react/index.js"}],"App.js":[function(require,module,exports) {
 "use strict";
@@ -29859,15 +29899,24 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Options = _interopRequireDefault(require("./Options"));
 
+var _Results = _interopRequireDefault(require("./Results"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function App() {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Options.default, null));
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country quiz"), /*#__PURE__*/_react.default.createElement("img", {
+    className: "headerimg",
+    src: "./undraw_adventure_4hum 1.svg"
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Options.default, null), /*#__PURE__*/_react.default.createElement(_Results.default, null)));
 }
 
 var _default = App;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","./Options":"Options.js"}],"index.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./Options":"Options.js","./Results":"Results.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -29907,7 +29956,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56079" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62447" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

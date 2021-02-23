@@ -8,11 +8,10 @@ function App() {
         <div className="container">
             <div className="header">
                <h1>Country quiz</h1>
-               <img  className="headerimg" src="./undraw_adventure_4hum 1.svg" />
             </div>
             <div>
                 <Options />
-                <Results />
+                {/* <Results /> */}
             </div>
         </div>
     )

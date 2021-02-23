@@ -128,4 +128,13 @@ h2 {
     left: 71%;
 }
 
+
+.correctAnswer {
+    background-color: green;
+}
+
+.wrongAnswer {
+    background-color: red;
+}
+
 /*# sourceMappingURL=/country-quiz.9ad09f98.css.map */

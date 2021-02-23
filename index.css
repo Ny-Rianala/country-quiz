@@ -127,3 +127,12 @@ h2 {
     top: 65%;
     left: 71%;
 }
+
+
+.correctAnswer {
+    background-color: green;
+}
+
+.wrongAnswer {
+    background-color: red;
+}

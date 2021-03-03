@@ -5,22 +5,18 @@ import styled from "styled-components"
 
 
 const HomeContainer = styled.section`
-    /* background: #fff;
-    border-radius: 24px;
-    margin-left: 25px;
-    padding-bottom: 75px; 
-    margin-bottom: 89px;
-    width: 90%;
-    margin-right: 25px;
+    padding-top: 65px;
+    padding-left: 45px;
+    padding-bottom: 42px;
+    padding-right: 32px;
     display: flex;
     flex-direction: column;
-    align-items: center; */
-    width: 464px;
-    height: 515px;
-    background: #fff;
-    border-radius: 24px;
-    display: flex;
-    justify-content: center;
+    align-items: center;
+    background: white;
+    margin-bottom: 286px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
 `;
 
 const ButtonOption = styled.div`
@@ -30,19 +26,6 @@ const ButtonOption = styled.div`
 `;
 
 const ButtonCity = styled.button`
-    /* width: 315px;
-    height: 65px;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-right: 0;
-    border: none;
-    border-radius: 12px;
-    color: #6066D0;
-    cursor: pointer;
-    text-align: center; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -117,15 +100,15 @@ export default function Homepage({
           </form>
           <div>
             {isOpen ?
-              <button
+              <ButtonNext
                 type="button"
                 onClick={getRandomCountry}
               >
                 Next
-              </button>
+              </ButtonNext>
               :
               <Link to="/result">
-                <ButtonNext>Next</ButtonNext>
+                <button>Next</button>
               </Link>
             }
           </div>

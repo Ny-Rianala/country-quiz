@@ -60,15 +60,15 @@ function Options() {
 
   function getAnswer(e) {
     e.preventDefault();
-    const correctAnswer = randomCountry.name;
-    console.log(correctAnswer);
+    const getCorrectAnswer = randomCountry.name;
+    console.log(getCorrectAnswer);
     const handleChoice = e.target.value;
     console.log(handleChoice);
 
-    // document.getElementById(correctAnswer).style.backgroundColor = "green";
-    // document.getElementById(correctAnswer).style.color = "white";
+    document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
+    document.getElementById(getCorrectAnswer).style.color = "white";
 
-    if (handleChoice === correctAnswer) {
+    if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");
       setCorrectAnswer(correctAnswer + 1);
       setIsOpen(true);
@@ -108,44 +108,3 @@ function Options() {
 
 }
 export default Options;
-
-// // Array of an object for the questions
-// const questions = [{
-//         nameOfCapital: "is Capital of"
-//     },
-//     {
-//         nameOfCountry: "Which country this flag belong to?"
-//     }
-
-// ]
-
-
-// const randomQuestions = e => {
-//     const len = questions.length;
-//     console.log(len);
-//     setQues(Math.floor(Math.random() * len));
-// };
-
-
-// //if the one of the list is clicked, this is to show the next button
-// function handleClick(e) {
-//     e.preventDefault();
-//    setIsOpen(true);
-// }
-
-// if (!countries.length) return null
-
-// //if thes next button is clicked  , we should have random
-// console.log(countries);
-// const random = Math.floor(Math.random() * 2);
-// console.log(random);
-
-// console.log(questions[1].nameOfCountry);
-// console.log(countries[1].flag);
-// console.log(questions[1]);
-
-// function handleFalseAnswer(e) {
-//   e.preventDefault();
-//   setAnswer(true);
-//   console.log(answer);
-// }

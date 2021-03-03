@@ -35792,22 +35792,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import image from './dist/undraw_adventure_4hum 1.50449585.svg';
 const HomeContainer = _styledComponents.default.section`
-    /* background: #fff;
-    border-radius: 24px;
-    margin-left: 25px;
-    padding-bottom: 75px; 
-    margin-bottom: 89px;
-    width: 90%;
-    margin-right: 25px;
+    padding-top: 65px;
+    padding-left: 45px;
+    padding-bottom: 42px;
+    padding-right: 32px;
     display: flex;
     flex-direction: column;
-    align-items: center; */
-    width: 464px;
-    height: 515px;
-    background: #fff;
-    border-radius: 24px;
-    display: flex;
-    justify-content: center;
+    align-items: center;
+    background: white;
+    margin-bottom: 286px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
 `;
 const ButtonOption = _styledComponents.default.div`
     display: flex;
@@ -35815,19 +35811,6 @@ const ButtonOption = _styledComponents.default.div`
     justify-content: space-around;
 `;
 const ButtonCity = _styledComponents.default.button`
-    /* width: 315px;
-    height: 65px;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 500;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-right: 0;
-    border: none;
-    border-radius: 12px;
-    color: #6066D0;
-    cursor: pointer;
-    text-align: center; */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -35880,12 +35863,12 @@ function Homepage({
       id: option?.name,
       onClick: getAnswer
     }, option?.name));
-  })), /*#__PURE__*/_react.default.createElement("div", null, isOpen ? /*#__PURE__*/_react.default.createElement("button", {
+  })), /*#__PURE__*/_react.default.createElement("div", null, isOpen ? /*#__PURE__*/_react.default.createElement(ButtonNext, {
     type: "button",
     onClick: getRandomCountry
   }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
-  }, /*#__PURE__*/_react.default.createElement(ButtonNext, null, "Next")))));
+  }, /*#__PURE__*/_react.default.createElement("button", null, "Next")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
@@ -36019,13 +36002,14 @@ function Options() {
 
   function getAnswer(e) {
     e.preventDefault();
-    const correctAnswer = randomCountry.name;
-    console.log(correctAnswer);
+    const getCorrectAnswer = randomCountry.name;
+    console.log(getCorrectAnswer);
     const handleChoice = e.target.value;
-    console.log(handleChoice); // document.getElementById(correctAnswer).style.backgroundColor = "green";
-    // document.getElementById(correctAnswer).style.color = "white";
+    console.log(handleChoice);
+    document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
+    document.getElementById(getCorrectAnswer).style.color = "white";
 
-    if (handleChoice === correctAnswer) {
+    if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");
       setCorrectAnswer(correctAnswer + 1);
       setIsOpen(true);
@@ -36058,38 +36042,7 @@ function Options() {
   }))));
 }
 
-var _default = Options; // // Array of an object for the questions
-// const questions = [{
-//         nameOfCapital: "is Capital of"
-//     },
-//     {
-//         nameOfCountry: "Which country this flag belong to?"
-//     }
-// ]
-// const randomQuestions = e => {
-//     const len = questions.length;
-//     console.log(len);
-//     setQues(Math.floor(Math.random() * len));
-// };
-// //if the one of the list is clicked, this is to show the next button
-// function handleClick(e) {
-//     e.preventDefault();
-//    setIsOpen(true);
-// }
-// if (!countries.length) return null
-// //if thes next button is clicked  , we should have random
-// console.log(countries);
-// const random = Math.floor(Math.random() * 2);
-// console.log(random);
-// console.log(questions[1].nameOfCountry);
-// console.log(countries[1].flag);
-// console.log(questions[1]);
-// function handleFalseAnswer(e) {
-//   e.preventDefault();
-//   setAnswer(true);
-//   console.log(answer);
-// }
-
+var _default = Options;
 exports.default = _default;
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./Homepage":"Homepage.js","./Results":"Results.js"}],"App.js":[function(require,module,exports) {
 "use strict";

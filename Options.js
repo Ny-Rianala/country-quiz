@@ -12,6 +12,7 @@ function Options() {
   const [ques, setQues] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
+  console.log(correctAnswer);
   // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all";

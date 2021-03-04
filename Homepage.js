@@ -88,6 +88,7 @@ export default function Homepage({
               return (
                 <ButtonOption>
                   <ButtonCity
+                    className="clicked"
                     key={option?.name}
                     value={option?.name}
                     id={option?.name}
@@ -108,7 +109,7 @@ export default function Homepage({
               </ButtonNext>
               :
               <Link to="/result">
-                <button>Next</button>
+                <ButtonNext>Next</ButtonNext>
               </Link>
             }
           </div>

@@ -135,3 +135,19 @@ h2 {
 .wrongAnswer {
     background-color: red;
 }
+
+.correctAnswer {
+    background-image: url("./dist/check_circle_outline.svg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color: #ffff;
+}
+
+.wrongAnswer {
+    background-image: url("./dist/highlight_off.svg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color: #ffff;
+
+}
+

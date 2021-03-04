@@ -38,6 +38,9 @@ const ButtonTry = styled.button`
     padding-right: 61px;
     border-radius: 12px;
     font-weight: 600px;
+    span {
+        color: green;
+    }
 `;
 
 

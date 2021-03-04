@@ -136,4 +136,21 @@ h2 {
     background-color: red;
 }
 
+.correctAnswer {
+    background-image: url("/check_circle_outline.71d48539.svg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color: #ffff;
+}
+
+.wrongAnswer {
+    background-image: url("/highlight_off.33b5dbca.svg");
+    background-repeat: no-repeat;
+    background-position: 100%;
+    color: #ffff;
+
+}
+
+
+
 /*# sourceMappingURL=/country-quiz.9ad09f98.css.map */

@@ -35858,6 +35858,7 @@ function Homepage({
     src: randomCountry.flag
   }), /*#__PURE__*/_react.default.createElement("h2", null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.map(option => {
     return /*#__PURE__*/_react.default.createElement(ButtonOption, null, /*#__PURE__*/_react.default.createElement(ButtonCity, {
+      className: "clicked",
       key: option?.name,
       value: option?.name,
       id: option?.name,
@@ -35868,7 +35869,7 @@ function Homepage({
     onClick: getRandomCountry
   }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
-  }, /*#__PURE__*/_react.default.createElement("button", null, "Next")))));
+  }, /*#__PURE__*/_react.default.createElement(ButtonNext, null, "Next")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
@@ -35919,6 +35920,9 @@ const ButtonTry = _styledComponents.default.button`
     padding-right: 61px;
     border-radius: 12px;
     font-weight: 600px;
+    span {
+        color: green;
+    }
 `;
 
 function Results({
@@ -35967,7 +35971,8 @@ function Options() {
   const [ques, setQues] = (0, _react.useState)(0);
   const [isOpen, setIsOpen] = (0, _react.useState)(false);
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
-  console.log(correctAnswer); // const [next, setNext] = useState(true);
+  console.log(correctAnswer); // const [number, setNumber] = 
+  // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all"; // Fetch data from api
 
@@ -36008,6 +36013,14 @@ function Options() {
     console.log(handleChoice);
     document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
     document.getElementById(getCorrectAnswer).style.color = "white";
+
+    if (getAnswer) {
+      const button = document.querySelector("button"); // // button.disabled = true;
+
+      button.style.cursor = "not-allowed"; // document.getElementsByClassName("clicked").style.pointerEvents = "none";
+    } else {
+      return;
+    }
 
     if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");
@@ -36112,7 +36125,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63827" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54912" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

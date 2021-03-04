@@ -13,6 +13,7 @@ function Options() {
   const [isOpen, setIsOpen] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   console.log(correctAnswer);
+  // const [number, setNumber] = 
   // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all";
@@ -67,6 +68,15 @@ function Options() {
 
     document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
     document.getElementById(getCorrectAnswer).style.color = "white";
+
+    if(getAnswer) {
+        const button = document.querySelector("button");
+        // // button.disabled = true;
+        button.style.cursor = "not-allowed";
+        // document.getElementsByClassName("clicked").style.pointerEvents = "none";
+    }else {
+      return;
+    }
 
     if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");

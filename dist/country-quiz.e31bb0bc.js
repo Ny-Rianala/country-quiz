@@ -35792,9 +35792,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import image from './dist/undraw_adventure_4hum 1.50449585.svg';
 const HomeContainer = _styledComponents.default.section`
-    padding-top: 65px;
-    padding-left: 45px;
-    padding-bottom: 42px;
+    padding-top: 41px;
+    padding-left: 32px;
+    padding-bottom: 60px;
     padding-right: 32px;
     display: flex;
     flex-direction: column;
@@ -35811,7 +35811,7 @@ const ButtonOption = _styledComponents.default.div`
     justify-content: space-around;
 `;
 const ButtonCity = _styledComponents.default.button`
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35819,7 +35819,18 @@ const ButtonCity = _styledComponents.default.button`
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 27px;
+    width: 400px;
+    height: 56px;
+    border: 1px solid #6066D0;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    color: #6066D0;
+    :hover {
+      background-color: #F9A826;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
 `;
 const ImageHeader = _styledComponents.default.img`
     top: 0%;
@@ -35828,6 +35839,9 @@ const ImageHeader = _styledComponents.default.img`
     left: 65%
 `;
 const ButtonNext = _styledComponents.default.button`
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700px;
     padding-left: 37px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -35839,9 +35853,27 @@ const ButtonNext = _styledComponents.default.button`
     border-radius: 12px;
     border: none;
     position: absolute;
-    left: 60%;
-    top: 87%;
+    left: 62%;
+    top: 88%;
+    margin-bottom: 32px;
+    margin-top: 24px;
     color: #ffff;
+`;
+const FlagImage = _styledComponents.default.img`
+    padding-top: 0;
+`;
+const SubHeader = _styledComponents.default.h2`
+    font-family: Poppins;
+    font-weight: 700px;
+    color: #2F527B;
+    font-size: 24px;
+    line-height: 36px;
+    padding-left: 23px;
+    padding-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding-top: 28px;
+    padding-bottom: 32px;
 `;
 
 function Homepage({
@@ -35850,20 +35882,30 @@ function Homepage({
   randomOptions,
   getAnswer,
   isOpen,
-  getRandomCountry
+  getRandomCountry,
+  isNext
 }) {
   return /*#__PURE__*/_react.default.createElement(HomeContainer, null, /*#__PURE__*/_react.default.createElement(ImageHeader, {
     src: "./undraw_adventure_4hum 1.svg"
-  }), randomCountry && /*#__PURE__*/_react.default.createElement("div", null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+  }), randomCountry && /*#__PURE__*/_react.default.createElement("div", null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(FlagImage, {
     src: randomCountry.flag
-  }), /*#__PURE__*/_react.default.createElement("h2", null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.map(option => {
-    return /*#__PURE__*/_react.default.createElement(ButtonOption, null, /*#__PURE__*/_react.default.createElement(ButtonCity, {
-      className: "clicked",
-      key: option?.name,
-      value: option?.name,
-      id: option?.name,
-      onClick: getAnswer
-    }, option?.name));
+  }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.map(option => {
+    return (
+      /*#__PURE__*/
+
+      /* <ButtonOption>   */
+      _react.default.createElement(ButtonCity, {
+        className: "clicked",
+        key: option?.name,
+        value: option?.name,
+        id: option?.name,
+        onClick: getAnswer
+        /* disabled={isNext} */
+
+      }, /*#__PURE__*/_react.default.createElement("span", null), option?.name)
+      /* </ButtonOption> */
+
+    );
   })), /*#__PURE__*/_react.default.createElement("div", null, isOpen ? /*#__PURE__*/_react.default.createElement(ButtonNext, {
     type: "button",
     onClick: getRandomCountry
@@ -35903,7 +35945,12 @@ const ContainerResult = _styledComponents.default.div`
     padding-right: 85px;
     color: black;
     p {
+        font-family: Poppins;
+        font-size: 15px;
+        color: #1D355D;
         padding-bottom: 71px;
+        margin-bottom: 0;
+        margin-top: 0;
     }
 `;
 const ImageWinner = _styledComponents.default.img`
@@ -35919,10 +35966,9 @@ const ButtonTry = _styledComponents.default.button`
     padding-bottom: 17px;
     padding-right: 61px;
     border-radius: 12px;
-    font-weight: 600px;
-    span {
-        color: green;
-    }
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Poppins;
 `;
 
 function Results({
@@ -35932,11 +35978,13 @@ function Results({
   console.log(correctAnswer);
   return /*#__PURE__*/_react.default.createElement(ContainerResult, null, /*#__PURE__*/_react.default.createElement(ImageWinner, {
     src: "./undraw_winners.svg"
-  }), /*#__PURE__*/_react.default.createElement("h3", null, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, correctAnswer), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }), /*#__PURE__*/_react.default.createElement("h3", {
+    className: "result"
+  }, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, correctAnswer), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement(ButtonTry, {
     onClick: getRandomCountry
-  }, "Try Again")));
+  }, "Try again")));
 }
 
 var _default = Results;
@@ -35969,10 +36017,10 @@ function Options() {
   const [randomCountry, setRandomCountry] = (0, _react.useState)({});
   const [randomOptions, setRandomOptions] = (0, _react.useState)([]);
   const [ques, setQues] = (0, _react.useState)(0);
-  const [isOpen, setIsOpen] = (0, _react.useState)(false);
+  const [isOpen, setIsOpen] = (0, _react.useState)(false); // const [isNext, setIsNext] = useState(false);
+
   const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
-  console.log(correctAnswer); // const [number, setNumber] = 
-  // const [next, setNext] = useState(true);
+  console.log(correctAnswer); // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all"; // Fetch data from api
 
@@ -36012,17 +36060,17 @@ function Options() {
     const handleChoice = e.target.value;
     console.log(handleChoice);
     document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
-    document.getElementById(getCorrectAnswer).style.color = "white";
-
-    if (getAnswer) {
-      const button = document.querySelector("button"); // // button.disabled = true;
-
-      button.style.cursor = "not-allowed"; // document.getElementsByClassName("clicked").style.pointerEvents = "none";
-    } else {
-      return;
-    }
+    document.getElementById(getCorrectAnswer).style.color = "white"; // if(getAnswer) {
+    //     const button = document.querySelector("button");
+    //     // // button.disabled = true;
+    //     button.style.cursor = "not-allowed";
+    //     // document.getElementsByClassName("clicked").style.pointerEvents = "none";
+    // }else {
+    //   return;
+    // }
 
     if (handleChoice === getCorrectAnswer) {
+      // setIsNext(true);
       e.target.classList.add("correctAnswer");
       setCorrectAnswer(correctAnswer + 1);
       setIsOpen(true);
@@ -36046,7 +36094,8 @@ function Options() {
     randomOptions: randomOptions,
     getAnswer: getAnswer,
     isOpen: isOpen,
-    getRandomCountry: getRandomCountry
+    getRandomCountry: getRandomCountry // isNext={isNext}
+
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Results.default, {
@@ -36125,7 +36174,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54912" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55085" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

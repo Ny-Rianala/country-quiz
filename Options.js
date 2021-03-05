@@ -11,9 +11,9 @@ function Options() {
   const [randomOptions, setRandomOptions] = useState([]);
   const [ques, setQues] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  // const [isNext, setIsNext] = useState(false);
   const [correctAnswer, setCorrectAnswer] = useState(0);
   console.log(correctAnswer);
-  // const [number, setNumber] = 
   // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all";
@@ -69,16 +69,17 @@ function Options() {
     document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
     document.getElementById(getCorrectAnswer).style.color = "white";
 
-    if(getAnswer) {
-        const button = document.querySelector("button");
-        // // button.disabled = true;
-        button.style.cursor = "not-allowed";
-        // document.getElementsByClassName("clicked").style.pointerEvents = "none";
-    }else {
-      return;
-    }
+    // if(getAnswer) {
+    //     const button = document.querySelector("button");
+    //     // // button.disabled = true;
+    //     button.style.cursor = "not-allowed";
+    //     // document.getElementsByClassName("clicked").style.pointerEvents = "none";
+    // }else {
+    //   return;
+    // }
 
     if (handleChoice === getCorrectAnswer) {
+      // setIsNext(true);
       e.target.classList.add("correctAnswer");
       setCorrectAnswer(correctAnswer + 1);
       setIsOpen(true);
@@ -93,6 +94,8 @@ function Options() {
     }, 30000)
   }
 
+
+
   return (
     <>
       <Switch>
@@ -104,6 +107,7 @@ function Options() {
             getAnswer={getAnswer}
             isOpen={isOpen}
             getRandomCountry={getRandomCountry}
+            // isNext={isNext}
           />
         </Route>
         <Route path="/result">

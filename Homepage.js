@@ -5,9 +5,9 @@ import styled from "styled-components"
 
 
 const HomeContainer = styled.section`
-    padding-top: 65px;
-    padding-left: 45px;
-    padding-bottom: 42px;
+    padding-top: 41px;
+    padding-left: 32px;
+    padding-bottom: 60px;
     padding-right: 32px;
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ const ButtonOption = styled.div`
 `;
 
 const ButtonCity = styled.button`
-    height: 100%;
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,8 +34,21 @@ const ButtonCity = styled.button`
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    line-height: 27px;
+    width: 400px;
+    height: 56px;
+    border: 1px solid #6066D0;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    color: #6066D0;
+    :hover {
+      background-color: #F9A826;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
 `;
+
+
 
 const ImageHeader = styled.img`
     top: 0%;
@@ -45,6 +58,9 @@ const ImageHeader = styled.img`
 `;
 
 const ButtonNext = styled.button`
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 700px;
     padding-left: 37px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -56,11 +72,31 @@ const ButtonNext = styled.button`
     border-radius: 12px;
     border: none;
     position: absolute;
-    left: 60%;
-    top: 87%;
+    left: 62%;
+    top: 88%;
+    margin-bottom: 32px;
+    margin-top: 24px;
     color: #ffff;
 `;
 
+const FlagImage = styled.img`
+    padding-top: 0;
+`;
+
+
+const SubHeader = styled.h2`
+    font-family: Poppins;
+    font-weight: 700px;
+    color: #2F527B;
+    font-size: 24px;
+    line-height: 36px;
+    padding-left: 23px;
+    padding-right: 10px;
+    margin-top: 0px;
+    margin-bottom: 0;
+    padding-top: 28px;
+    padding-bottom: 32px;
+`;
 
 export default function Homepage({
   randomCountry,
@@ -68,7 +104,8 @@ export default function Homepage({
   randomOptions,
   getAnswer,
   isOpen,
-  getRandomCountry
+  getRandomCountry,
+  isNext
 }
 ) {
 
@@ -79,23 +116,24 @@ export default function Homepage({
         <div>
           {ques % 2 === 0 ?
             <div>
-              <img src={randomCountry.flag} />
-              <h2>What country does this flag belong to?</h2>
+              <FlagImage src={randomCountry.flag} />
+              <SubHeader>What country does this flag belong to?</SubHeader>
             </div>
             : <h2>{randomCountry.capital} is the capital of?</h2>}
           <form>
             {randomOptions && randomOptions.map((option) => {
               return (
-                <ButtonOption>
+                /* <ButtonOption>   */
                   <ButtonCity
                     className="clicked"
                     key={option?.name}
                     value={option?.name}
                     id={option?.name}
                     onClick={getAnswer}
-                    >{option?.name}
+                    /* disabled={isNext} */
+                    ><span></span>{option?.name}
                   </ButtonCity>
-                </ButtonOption>
+                /* </ButtonOption> */
               )
             })}
           </form>

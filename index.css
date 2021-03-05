@@ -63,17 +63,6 @@ h1 {
     background-repeat: no-repeat;
 }
 
-h2 {
-    color: #2F527B;
-    font-size: 24px;
-    line-height: 36px;
-    padding-left: 23px;
-    padding-right: 10px;
-    margin-top: 0px;
-    margin-bottom: 0;
-    padding-top: 15px;
-}
-
 .next {
     padding-left: 37px;
     padding-top: 15px;
@@ -151,3 +140,37 @@ h2 {
 
 }
 
+.clicked:nth-of-type(1)::before {
+    content: "A";
+}
+
+
+.clicked:nth-child(2)::before {
+    content: "B";
+}
+
+.clicked:nth-of-type(3)::before {
+    content: "C";
+}
+
+
+.clicked:nth-of-type(4)::before {
+    content: "D";
+}
+
+
+span {
+    color: rgb(27, 216, 144); 
+    font-size: 28px;
+    font-weight: 700;   
+}
+
+.result {
+    font-size: 48px;
+    line-height: 72px;
+    color: #1D355D;
+    font-weight: 700;
+    font-family: Poppins;
+    margin-top: 0;
+    margin-bottom: 0;
+}

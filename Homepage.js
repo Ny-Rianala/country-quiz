@@ -105,7 +105,9 @@ export default function Homepage({
   getAnswer,
   isOpen,
   getRandomCountry,
-  isDisable
+  isDisable,
+  setNext,
+  next
 }
 ) {
 
@@ -140,7 +142,7 @@ export default function Homepage({
           </form>
           <div>
             {isOpen ?
-              <ButtonNext
+              <ButtonNext style={{display: next ? "block" : "none" }}
                 type="button"
                 onClick={getRandomCountry}
               >
@@ -148,7 +150,7 @@ export default function Homepage({
               </ButtonNext>
               :
               <Link to="/result">
-                <ButtonNext>Next</ButtonNext>
+                <ButtonNext style={{display: next ? "block" : "none" }}>Next</ButtonNext>
               </Link>
             }
           </div>

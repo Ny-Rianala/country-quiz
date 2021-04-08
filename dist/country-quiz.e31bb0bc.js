@@ -35883,7 +35883,9 @@ function Homepage({
   getAnswer,
   isOpen,
   getRandomCountry,
-  isDisable
+  isDisable,
+  setNext,
+  next
 }) {
   return /*#__PURE__*/_react.default.createElement(HomeContainer, null, /*#__PURE__*/_react.default.createElement(ImageHeader, {
     src: "./undraw_adventure_4hum 1.svg"
@@ -35906,11 +35908,18 @@ function Homepage({
 
     );
   })), /*#__PURE__*/_react.default.createElement("div", null, isOpen ? /*#__PURE__*/_react.default.createElement(ButtonNext, {
+    style: {
+      display: next ? "block" : "none"
+    },
     type: "button",
     onClick: getRandomCountry
   }, "Next") : /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/result"
-  }, /*#__PURE__*/_react.default.createElement(ButtonNext, null, "Next")))));
+  }, /*#__PURE__*/_react.default.createElement(ButtonNext, {
+    style: {
+      display: next ? "block" : "none"
+    }
+  }, "Next")))));
 }
 },{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"Results.js":[function(require,module,exports) {
 "use strict";
@@ -36018,8 +36027,8 @@ function Options() {
   const [ques, setQues] = (0, _react.useState)(0);
   const [isOpen, setIsOpen] = (0, _react.useState)(false);
   const [isDisable, setIsDisable] = (0, _react.useState)(false);
-  const [score, setScore] = (0, _react.useState)(0); // const [next, setNext] = useState(true);
-
+  const [score, setScore] = (0, _react.useState)(0);
+  const [next, setNext] = (0, _react.useState)(false);
   const url = "https://restcountries.eu/rest/v2/all"; // Fetch data from api
 
   const listOfCountry = async () => {
@@ -36046,6 +36055,7 @@ function Options() {
     setRandomOptions(randomOptions);
     setRandomCountry(secondRandomOption);
     setIsDisable(false);
+    setNext(false);
   }
 
   (0, _react.useEffect)(() => {
@@ -36060,6 +36070,7 @@ function Options() {
     const correctAnswer = document.getElementById(getCorrectAnswer);
     correctAnswer.classList.add("correctAnswer");
     setIsDisable(true);
+    setNext(true);
 
     if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");
@@ -36086,7 +36097,9 @@ function Options() {
     getAnswer: getAnswer,
     isOpen: isOpen,
     getRandomCountry: getRandomCountry,
-    isDisable: isDisable
+    isDisable: isDisable,
+    setNext: setNext,
+    next: next
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Results.default, {

@@ -13,7 +13,7 @@ function Options() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDisable, setIsDisable] = useState(false);
   const [score, setScore] = useState(0);
-  // const [next, setNext] = useState(true);
+  const [next, setNext] = useState(false);
 
   const url = "https://restcountries.eu/rest/v2/all";
 
@@ -51,6 +51,7 @@ function Options() {
     setRandomOptions(randomOptions);
     setRandomCountry(secondRandomOption);
     setIsDisable(false)
+    setNext(false)
   }
 
   useEffect(() => {
@@ -67,6 +68,7 @@ function Options() {
     const correctAnswer = document.getElementById(getCorrectAnswer);
     correctAnswer.classList.add("correctAnswer")
     setIsDisable(true)
+    setNext(true);
     if (handleChoice === getCorrectAnswer) {
       e.target.classList.add("correctAnswer");
       setScore(score + 1);
@@ -96,6 +98,8 @@ function Options() {
             isOpen={isOpen}
             getRandomCountry={getRandomCountry}
             isDisable={isDisable}
+            setNext={setNext}
+            next={next}
           />
         </Route>
         <Route path="/result">

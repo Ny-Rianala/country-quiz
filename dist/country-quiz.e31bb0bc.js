@@ -35819,8 +35819,8 @@ const ButtonCity = _styledComponents.default.button`
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    width: 400px;
-    height: 56px;
+    width: 320px;
+    height: 50px;
     border: 1px solid #6066D0;
     border-radius: 12px;
     margin-bottom: 25px;
@@ -35854,7 +35854,7 @@ const ButtonNext = _styledComponents.default.button`
     border: none;
     position: absolute;
     left: 62%;
-    top: 88%;
+    top: 82%;
     margin-bottom: 32px;
     margin-top: 24px;
     color: #ffff;
@@ -36058,9 +36058,10 @@ function Options() {
     const getCorrectAnswer = randomCountry.name;
     console.log(getCorrectAnswer);
     const handleChoice = e.target.value;
-    console.log(handleChoice);
-    document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
-    document.getElementById(getCorrectAnswer).style.color = "white"; // if(getAnswer) {
+    const correctAnswer = document.getElementById(getCorrectAnswer);
+    correctAnswer.classList.add("correctAnswer"); // document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
+    // document.getElementById(getCorrectAnswer).style.color = "white";
+    // if(getAnswer) {
     //     const button = document.querySelector("button");
     //     // // button.disabled = true;
     //     button.style.cursor = "not-allowed";
@@ -36174,7 +36175,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55085" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52326" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

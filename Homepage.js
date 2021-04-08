@@ -34,8 +34,8 @@ const ButtonCity = styled.button`
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    width: 400px;
-    height: 56px;
+    width: 320px;
+    height: 50px;
     border: 1px solid #6066D0;
     border-radius: 12px;
     margin-bottom: 25px;
@@ -73,7 +73,7 @@ const ButtonNext = styled.button`
     border: none;
     position: absolute;
     left: 62%;
-    top: 88%;
+    top: 82%;
     margin-bottom: 32px;
     margin-top: 24px;
     color: #ffff;

@@ -64,10 +64,11 @@ function Options() {
     const getCorrectAnswer = randomCountry.name;
     console.log(getCorrectAnswer);
     const handleChoice = e.target.value;
-    console.log(handleChoice);
+    const correctAnswer = document.getElementById(getCorrectAnswer);
+    correctAnswer.classList.add("correctAnswer")
 
-    document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
-    document.getElementById(getCorrectAnswer).style.color = "white";
+    // document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
+    // document.getElementById(getCorrectAnswer).style.color = "white";
 
     // if(getAnswer) {
     //     const button = document.querySelector("button");

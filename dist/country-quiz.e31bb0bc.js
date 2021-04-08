@@ -35825,12 +35825,12 @@ const ButtonCity = _styledComponents.default.button`
     border-radius: 12px;
     margin-bottom: 25px;
     color: #6066D0;
-    :hover {
+    /* :hover {
       background-color: #F9A826;
       color: white;
       cursor: pointer;
       border: none;
-    }
+    } */
 `;
 const ImageHeader = _styledComponents.default.img`
     top: 0%;
@@ -35883,13 +35883,13 @@ function Homepage({
   getAnswer,
   isOpen,
   getRandomCountry,
-  isNext
+  isDisable
 }) {
   return /*#__PURE__*/_react.default.createElement(HomeContainer, null, /*#__PURE__*/_react.default.createElement(ImageHeader, {
     src: "./undraw_adventure_4hum 1.svg"
   }), randomCountry && /*#__PURE__*/_react.default.createElement("div", null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(FlagImage, {
     src: randomCountry.flag
-  }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.map(option => {
+  }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.sort((a, b) => a.name.length - b.name.length).map(option => {
     return (
       /*#__PURE__*/
 
@@ -35899,9 +35899,8 @@ function Homepage({
         key: option?.name,
         value: option?.name,
         id: option?.name,
-        onClick: getAnswer
-        /* disabled={isNext} */
-
+        onClick: getAnswer,
+        disabled: isDisable
       }, /*#__PURE__*/_react.default.createElement("span", null), option?.name)
       /* </ButtonOption> */
 
@@ -35972,15 +35971,15 @@ const ButtonTry = _styledComponents.default.button`
 `;
 
 function Results({
-  correctAnswer,
+  score,
   getRandomCountry
 }) {
-  console.log(correctAnswer);
+  console.log(score);
   return /*#__PURE__*/_react.default.createElement(ContainerResult, null, /*#__PURE__*/_react.default.createElement(ImageWinner, {
     src: "./undraw_winners.svg"
   }), /*#__PURE__*/_react.default.createElement("h3", {
     className: "result"
-  }, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, correctAnswer), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, score), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement(ButtonTry, {
     onClick: getRandomCountry
@@ -36017,10 +36016,9 @@ function Options() {
   const [randomCountry, setRandomCountry] = (0, _react.useState)({});
   const [randomOptions, setRandomOptions] = (0, _react.useState)([]);
   const [ques, setQues] = (0, _react.useState)(0);
-  const [isOpen, setIsOpen] = (0, _react.useState)(false); // const [isNext, setIsNext] = useState(false);
-
-  const [correctAnswer, setCorrectAnswer] = (0, _react.useState)(0);
-  console.log(correctAnswer); // const [next, setNext] = useState(true);
+  const [isOpen, setIsOpen] = (0, _react.useState)(false);
+  const [isDisable, setIsDisable] = (0, _react.useState)(false);
+  const [score, setScore] = (0, _react.useState)(0); // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all"; // Fetch data from api
 
@@ -36047,6 +36045,7 @@ function Options() {
     const randomOptions = [firstRandomOption, secondRandomOption, thirdRandomOption, fourthRandomOption];
     setRandomOptions(randomOptions);
     setRandomCountry(secondRandomOption);
+    setIsDisable(false);
   }
 
   (0, _react.useEffect)(() => {
@@ -36059,21 +36058,12 @@ function Options() {
     console.log(getCorrectAnswer);
     const handleChoice = e.target.value;
     const correctAnswer = document.getElementById(getCorrectAnswer);
-    correctAnswer.classList.add("correctAnswer"); // document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
-    // document.getElementById(getCorrectAnswer).style.color = "white";
-    // if(getAnswer) {
-    //     const button = document.querySelector("button");
-    //     // // button.disabled = true;
-    //     button.style.cursor = "not-allowed";
-    //     // document.getElementsByClassName("clicked").style.pointerEvents = "none";
-    // }else {
-    //   return;
-    // }
+    correctAnswer.classList.add("correctAnswer");
+    setIsDisable(true);
 
     if (handleChoice === getCorrectAnswer) {
-      // setIsNext(true);
       e.target.classList.add("correctAnswer");
-      setCorrectAnswer(correctAnswer + 1);
+      setScore(score + 1);
       setIsOpen(true);
       setCountries(countries);
     } else {
@@ -36095,12 +36085,12 @@ function Options() {
     randomOptions: randomOptions,
     getAnswer: getAnswer,
     isOpen: isOpen,
-    getRandomCountry: getRandomCountry // isNext={isNext}
-
+    getRandomCountry: getRandomCountry,
+    isDisable: isDisable
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Results.default, {
-    correctAnswer: correctAnswer,
+    score: score,
     getRandomCountry: getRandomCountry
   }))));
 }

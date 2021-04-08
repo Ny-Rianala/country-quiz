@@ -101,9 +101,12 @@ h1 {
 
 }
 
-.buttonOption:hover {
+.clicked:hover {
     background-color: #F9A826;
     color: #ffff;
+    color: white;
+    cursor: pointer;
+    border: none;
 }
 
 
@@ -117,13 +120,13 @@ h1 {
     left: 71%;
 }
 
-.correctAnswer {
+/* .correctAnswer {
     background-color: green;
-}
+} */
 
-.wrongAnswer {
+/* .wrongAnswer {
     background-color: red;
-}
+} */
 
 .correctAnswer {
     background-image: url("./dist/check_circle_outline.svg");
@@ -138,6 +141,16 @@ h1 {
     background-position: 100%;
     color: #ffff;
 
+}
+
+.correctAnswer,
+.correctAnswer:hover {
+    background-color: green;
+}
+
+.wrongAnswer,
+.wrongAnswer:hover {
+    background-color: red;
 }
 
 .clicked:nth-of-type(1)::before {

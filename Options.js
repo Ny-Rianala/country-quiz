@@ -11,9 +11,8 @@ function Options() {
   const [randomOptions, setRandomOptions] = useState([]);
   const [ques, setQues] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  // const [isNext, setIsNext] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState(0);
-  console.log(correctAnswer);
+  const [isDisable, setIsDisable] = useState(false);
+  const [score, setScore] = useState(0);
   // const [next, setNext] = useState(true);
 
   const url = "https://restcountries.eu/rest/v2/all";
@@ -51,6 +50,7 @@ function Options() {
     ]
     setRandomOptions(randomOptions);
     setRandomCountry(secondRandomOption);
+    setIsDisable(false)
   }
 
   useEffect(() => {
@@ -66,23 +66,10 @@ function Options() {
     const handleChoice = e.target.value;
     const correctAnswer = document.getElementById(getCorrectAnswer);
     correctAnswer.classList.add("correctAnswer")
-
-    // document.getElementById(getCorrectAnswer).style.backgroundColor = "green";
-    // document.getElementById(getCorrectAnswer).style.color = "white";
-
-    // if(getAnswer) {
-    //     const button = document.querySelector("button");
-    //     // // button.disabled = true;
-    //     button.style.cursor = "not-allowed";
-    //     // document.getElementsByClassName("clicked").style.pointerEvents = "none";
-    // }else {
-    //   return;
-    // }
-
+    setIsDisable(true)
     if (handleChoice === getCorrectAnswer) {
-      // setIsNext(true);
       e.target.classList.add("correctAnswer");
-      setCorrectAnswer(correctAnswer + 1);
+      setScore(score + 1);
       setIsOpen(true);
       setCountries(countries);
     } else {
@@ -108,13 +95,13 @@ function Options() {
             getAnswer={getAnswer}
             isOpen={isOpen}
             getRandomCountry={getRandomCountry}
-            // isNext={isNext}
+            isDisable={isDisable}
           />
         </Route>
         <Route path="/result">
-          <Results 
-              correctAnswer={correctAnswer}
-              getRandomCountry={getRandomCountry}
+          <Results
+            score={score}
+            getRandomCountry={getRandomCountry}
           />
         </Route>
       </Switch>

@@ -40,12 +40,12 @@ const ButtonCity = styled.button`
     border-radius: 12px;
     margin-bottom: 25px;
     color: #6066D0;
-    :hover {
+    /* :hover {
       background-color: #F9A826;
       color: white;
       cursor: pointer;
       border: none;
-    }
+    } */
 `;
 
 
@@ -105,7 +105,7 @@ export default function Homepage({
   getAnswer,
   isOpen,
   getRandomCountry,
-  isNext
+  isDisable
 }
 ) {
 
@@ -121,18 +121,19 @@ export default function Homepage({
             </div>
             : <h2>{randomCountry.capital} is the capital of?</h2>}
           <form>
-            {randomOptions && randomOptions.map((option) => {
+            {randomOptions && randomOptions.sort((a, b) => a.name.length - b.name.length).map((option) => {
               return (
                 /* <ButtonOption>   */
-                  <ButtonCity
-                    className="clicked"
-                    key={option?.name}
-                    value={option?.name}
-                    id={option?.name}
-                    onClick={getAnswer}
-                    /* disabled={isNext} */
-                    ><span></span>{option?.name}
-                  </ButtonCity>
+                <ButtonCity
+                  className="clicked"
+                  key={option?.name}
+                  value={option?.name}
+                  id={option?.name}
+                  onClick={getAnswer}
+
+                  disabled={isDisable}
+                ><span></span>{option?.name}
+                </ButtonCity>
                 /* </ButtonOption> */
               )
             })}

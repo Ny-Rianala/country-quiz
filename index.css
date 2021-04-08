@@ -22,14 +22,19 @@ img {
     }
 }
 
-.container {
+#root {
     background-image: url("./background.png");
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 100vh;
 }
 
+.container {
+    max-width: 464px;
+    margin: auto;
+}
 
 h1 {
     color: #ffff;
@@ -171,6 +176,12 @@ h1 {
     content: "D";
 }
 
+.clicked:nth-of-type(1)::before,
+.clicked:nth-of-type(2)::before,
+.clicked:nth-of-type(3)::before,
+.clicked:nth-of-type(4)::before {
+    margin-right: 46px;
+}
 
 span {
     color: rgb(27, 216, 144); 

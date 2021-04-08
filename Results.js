@@ -51,6 +51,7 @@ const ButtonTry = styled.button`
 
 function Results({
     score,
+    setNext,
     setScore,
     setIsDisable,
     getRandomCountry
@@ -60,7 +61,7 @@ function Results({
     function resetResult() {
         setScore(0);
         setIsDisable(false)
-
+        setNext(false)
     }
     return (
         <ContainerResult>

@@ -23,12 +23,6 @@ function Options() {
     const data = await res.json();
     setCountries(data);
     setRandomCountry(data);
-    console.log(data);
-    //minimize the value from the whole array
-    // const n = 4;
-    // console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
-    // setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
-
   }
 
   useEffect(() => {
@@ -106,6 +100,7 @@ function Options() {
           <Results
             setScore={setScore}
             setIsDisable={setIsDisable}
+            setNext={setNext}
             score={score}
             getRandomCountry={getRandomCountry}
           />

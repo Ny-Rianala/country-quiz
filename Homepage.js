@@ -5,6 +5,7 @@ import styled from "styled-components"
 
 
 const HomeContainer = styled.section`
+    position: relative;
     padding-top: 41px;
     padding-left: 32px;
     padding-bottom: 60px;
@@ -17,27 +18,25 @@ const HomeContainer = styled.section`
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 20px;
-`;
-
-const ButtonOption = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    max-width: calc(464px - calc(32px + 32px));
 `;
 
 const ButtonCity = styled.button`
-    /* height: 100%; */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    place-content: flex-start;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    width: 320px;
-    height: 50px;
+    width: 100%;
+    max-width: 400px;
+    height: 56px;
     border: 1px solid #6066D0;
     border-radius: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 19px;
     margin-bottom: 25px;
     color: #6066D0;
     /* :hover {
@@ -143,7 +142,7 @@ export default function Homepage({
           </form>
           <div>
             {isOpen ?
-              <ButtonNext style={{display: next ? "block" : "none" }}
+              <ButtonNext style={{ display: next ? "block" : "none" }}
                 type="button"
                 onClick={getRandomCountry}
               >
@@ -151,7 +150,7 @@ export default function Homepage({
               </ButtonNext>
               :
               <Link to="/result">
-                <ButtonNext style={{display: next ? "block" : "none" }}>Next</ButtonNext>
+                <ButtonNext style={{ display: next ? "block" : "none" }}>Next</ButtonNext>
               </Link>
             }
           </div>

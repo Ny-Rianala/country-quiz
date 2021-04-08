@@ -35792,6 +35792,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // import image from './dist/undraw_adventure_4hum 1.50449585.svg';
 const HomeContainer = _styledComponents.default.section`
+    position: relative;
     padding-top: 41px;
     padding-left: 32px;
     padding-bottom: 60px;
@@ -35804,25 +35805,24 @@ const HomeContainer = _styledComponents.default.section`
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 20px;
-`;
-const ButtonOption = _styledComponents.default.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    max-width: calc(464px - calc(32px + 32px));
 `;
 const ButtonCity = _styledComponents.default.button`
-    /* height: 100%; */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    place-content: flex-start;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
-    width: 320px;
-    height: 50px;
+    width: 100%;
+    max-width: 400px;
+    height: 56px;
     border: 1px solid #6066D0;
     border-radius: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 19px;
     margin-bottom: 25px;
     color: #6066D0;
     /* :hover {
@@ -35981,6 +35981,7 @@ const ButtonTry = _styledComponents.default.button`
 
 function Results({
   score,
+  setNext,
   setScore,
   setIsDisable,
   getRandomCountry
@@ -35990,6 +35991,7 @@ function Results({
   function resetResult() {
     setScore(0);
     setIsDisable(false);
+    setNext(false);
   }
 
   return /*#__PURE__*/_react.default.createElement(ContainerResult, null, /*#__PURE__*/_react.default.createElement(ImageWinner, {
@@ -36044,10 +36046,6 @@ function Options() {
     const data = await res.json();
     setCountries(data);
     setRandomCountry(data);
-    console.log(data); //minimize the value from the whole array
-    // const n = 4;
-    // console.log(data.sort(() => 0.5 - Math.random()).slice(0, n));
-    // setCountries(data.sort(() => 0.5 - Math.random()).slice(0, n));
   };
 
   (0, _react.useEffect)(() => {
@@ -36113,6 +36111,7 @@ function Options() {
   }, /*#__PURE__*/_react.default.createElement(_Results.default, {
     setScore: setScore,
     setIsDisable: setIsDisable,
+    setNext: setNext,
     score: score,
     getRandomCountry: getRandomCountry
   }))));

@@ -26,7 +26,7 @@ const ContainerResult = styled.div`
         margin-bottom: 0;
         margin-top: 0;
     }
-`; 
+`;
 
 const ImageWinner = styled.img`
     width: 100%;
@@ -51,19 +51,26 @@ const ButtonTry = styled.button`
 
 function Results({
     score,
+    setScore,
+    setIsDisable,
     getRandomCountry
 }) {
-    
-    console.log(score);
 
+    console.log(score);
+    function resetResult() {
+        setScore(0);
+        setIsDisable(false)
+
+    }
     return (
         <ContainerResult>
-            <ImageWinner src="./undraw_winners.svg"/>
+            <ImageWinner src="./undraw_winners.svg" />
             <h3 className="result">Results</h3>
             <p>You got <span>{score}</span> correct answers</p>
             <Link to="/">
                 <ButtonTry
-                    onClick={getRandomCountry}
+                    onClick={resetResult}
+
                 >Try again</ButtonTry>
             </Link>
         </ContainerResult>

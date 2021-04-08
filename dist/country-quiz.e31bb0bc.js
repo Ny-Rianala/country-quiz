@@ -35981,9 +35981,17 @@ const ButtonTry = _styledComponents.default.button`
 
 function Results({
   score,
+  setScore,
+  setIsDisable,
   getRandomCountry
 }) {
   console.log(score);
+
+  function resetResult() {
+    setScore(0);
+    setIsDisable(false);
+  }
+
   return /*#__PURE__*/_react.default.createElement(ContainerResult, null, /*#__PURE__*/_react.default.createElement(ImageWinner, {
     src: "./undraw_winners.svg"
   }), /*#__PURE__*/_react.default.createElement("h3", {
@@ -35991,7 +35999,7 @@ function Results({
   }, "Results"), /*#__PURE__*/_react.default.createElement("p", null, "You got ", /*#__PURE__*/_react.default.createElement("span", null, score), " correct answers"), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
   }, /*#__PURE__*/_react.default.createElement(ButtonTry, {
-    onClick: getRandomCountry
+    onClick: resetResult
   }, "Try again")));
 }
 
@@ -36047,10 +36055,10 @@ function Options() {
   }, []);
 
   function getRandomCountry() {
-    const firstRandomOption = countries[Math.floor(Math.random() * countries.length)];
+    const firstRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
     const secondRandomOption = countries[Math.floor(Math.random() * countries.length)];
-    const thirdRandomOption = countries[Math.floor(Math.random() * countries.length)];
-    const fourthRandomOption = countries[Math.floor(Math.random() * countries.length)];
+    const thirdRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
+    const fourthRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
     const randomOptions = [firstRandomOption, secondRandomOption, thirdRandomOption, fourthRandomOption];
     setRandomOptions(randomOptions);
     setRandomCountry(secondRandomOption);
@@ -36103,6 +36111,8 @@ function Options() {
   })), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Route, {
     path: "/result"
   }, /*#__PURE__*/_react.default.createElement(_Results.default, {
+    setScore: setScore,
+    setIsDisable: setIsDisable,
     score: score,
     getRandomCountry: getRandomCountry
   }))));

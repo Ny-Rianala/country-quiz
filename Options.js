@@ -37,10 +37,10 @@ function Options() {
 
 
   function getRandomCountry() {
-    const firstRandomOption = countries[Math.floor(Math.random() * countries.length)];
+    const firstRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
     const secondRandomOption = countries[Math.floor(Math.random() * countries.length)];
-    const thirdRandomOption = countries[Math.floor(Math.random() * countries.length)];
-    const fourthRandomOption = countries[Math.floor(Math.random() * countries.length)];
+    const thirdRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
+    const fourthRandomOption = countries[Math.floor(Math.random() * countries.length + 1)];
 
     const randomOptions = [
       firstRandomOption,
@@ -104,6 +104,8 @@ function Options() {
         </Route>
         <Route path="/result">
           <Results
+            setScore={setScore}
+            setIsDisable={setIsDisable}
             score={score}
             getRandomCountry={getRandomCountry}
           />

@@ -1,128 +1,136 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins Black';
+  font-size: 16px;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-img {
-    width: 25%;
-    position: relative;
-    left: 7%;
-    padding-top: 40px;
-}
+/* img {
+  width: 40%;
+  padding-top: 40px;
+} */
 
-@media(min-width:1000px) {
-    img{
-        width: 20%;
-    }
+@media (min-width: 1000px) {
+  img {
+    width: 20%;
+  }
 }
 
 #root {
-    background-image: url("./background.png");
-    background-size: cover;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
+  background-image: url('./background.png');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
 }
 
 .container {
-    max-width: 464px;
-    margin: auto;
+  max-width: 464px;
+  margin: auto;
+  /* margin-top: 200px; */
 }
 
 h1 {
-    color: #ffff;
-    text-transform: capitalize;
-    /* margin-top: 90px; */
-    margin-left: 13px;
-    text-transform: uppercase;
-    font-size: 30px;
+  color: #ffff;
+  text-transform: capitalize;
+  /* margin-top: 90px; */
+  margin-left: 13px;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 
 .quiz-card {
-    background: #fff;
-    border-radius: 24px;
-    margin-left: 10px;
-    padding-left: -1px;
-    margin-right: 10px;
-    padding-bottom: 75px;
+  background: #fff;
+  border-radius: 24px;
+  margin-left: 10px;
+  padding-left: -1px;
+  margin-right: 10px;
+  padding-bottom: 75px;
 }
 
 .questionCard {
-    width: 400px;
-    display: grid;
-    grid-template-rows: 30% 55% 15%;
+  width: 400px;
+  display: grid;
+  grid-template-rows: 30% 55% 15%;
 }
 
-
 .header {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  background-repeat: no-repeat;
+  padding-top: 20px;
+  /* background-color: #6066d0; */
 }
 
 .next {
-    padding-left: 37px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    padding-right: 37px;
-    width: 100px;
-    height: 50px;
-    background: #F9A826;
-    box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
-    border-radius: 12px;
-    border: none;
-    position: absolute;
-    left: 67%;
-    top: 90%;
-    color: #ffff;
+  padding-left: 37px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 37px;
+  width: 100px;
+  height: 50px;
+  background: #f9a826;
+  box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+  border-radius: 12px;
+  border: none;
+  position: absolute;
+  left: 67%;
+  top: 90%;
+  color: #ffff;
 }
 
 .buttonOption {
-    width: 335px;
-    height: 65px;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 500;
-    margin-top: 1rem;
-    margin-right: 0;
-    margin-left: 21px;
-    border: none;
-    border-radius: 12px;
-    color: #6066D0;
-    cursor: pointer;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
+  width: 335px;
+  height: 65px;
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 500;
+  margin-top: 1rem;
+  margin-right: 0;
+  margin-left: 21px;
+  border: none;
+  border-radius: 12px;
+  color: #6066d0;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .clicked:hover {
-    background-color: #F9A826;
-    color: #ffff;
-    color: white;
-    cursor: pointer;
-    border: none;
+  background-color: #f9a826;
+  color: #ffff;
+  cursor: pointer;
+  border: none;
 }
 
+.clicked:hover:not(.correctAnswer, .wrongAnswer, .result, .next) {
+  background-color: #f9a826;
+  color: #ffff;
+  cursor: pointer;
+  border: none;
+}
 
 .containerTry {
-    background-color: white;
+  background-color: white;
 }
 
 .headerimg {
-    position: absolute;
-    top: 65%;
-    left: 71%;
+  position: absolute;
+  top: 65%;
+  left: 71%;
+}
+
+.subContainer {
+  background-color: red;
 }
 
 /* .correctAnswer {
@@ -134,67 +142,72 @@ h1 {
 } */
 
 .correctAnswer {
-    background-image: url("./dist/check_circle_outline.svg");
-    background-repeat: no-repeat;
-    background-position: 100%;
-    color: #ffff;
+  background-image: url('./dist/check_circle_outline.svg');
+  background-repeat: no-repeat;
+  background-position: 100%;
+  color: #ffff;
 }
 
 .wrongAnswer {
-    background-image: url("./dist/highlight_off.svg");
-    background-repeat: no-repeat;
-    background-position: 100%;
-    color: #ffff;
-
+  background-image: url('./dist/highlight_off.svg');
+  background-repeat: no-repeat;
+  background-position: 100%;
+  color: #ffff;
 }
 
-.correctAnswer,
+.correctAnswer {
+  background-color: #60bf88;
+  color: #ffffff;
+}
+
 .correctAnswer:hover {
-    background-color: green;
+  background-color: #60bf88;
 }
 
-.wrongAnswer,
+.wrongAnswer {
+  background-color: #ea8282;
+  color: #ffffff;
+}
+
 .wrongAnswer:hover {
-    background-color: red;
+  background-color: #ea8282;
 }
 
 .clicked:nth-of-type(1)::before {
-    content: "A";
+  content: 'A';
 }
 
-
 .clicked:nth-child(2)::before {
-    content: "B";
+  content: 'B';
 }
 
 .clicked:nth-of-type(3)::before {
-    content: "C";
+  content: 'C';
 }
 
-
 .clicked:nth-of-type(4)::before {
-    content: "D";
+  content: 'D';
 }
 
 .clicked:nth-of-type(1)::before,
 .clicked:nth-of-type(2)::before,
 .clicked:nth-of-type(3)::before,
 .clicked:nth-of-type(4)::before {
-    margin-right: 46px;
+  margin-right: 46px;
 }
 
 span {
-    color: rgb(27, 216, 144); 
-    font-size: 28px;
-    font-weight: 700;   
+  color: rgb(27, 216, 144);
+  font-size: 28px;
+  font-weight: 700;
 }
 
 .result {
-    font-size: 48px;
-    line-height: 72px;
-    color: #1D355D;
-    font-weight: 700;
-    font-family: Poppins;
-    margin-top: 0;
-    margin-bottom: 0;
+  font-size: 48px;
+  line-height: 72px;
+  color: #1d355d;
+  font-weight: 700;
+  font-family: Poppins;
+  margin-top: 0;
+  margin-bottom: 0;
 }

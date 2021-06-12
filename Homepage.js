@@ -7,9 +7,9 @@ const HomeContainer = styled.section`
   position: relative;
   // padding-top: 41px;
   // padding-top: 70px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 0;
+  // padding-left: 32px;
+  // padding-right: 32px;
+  // padding-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,12 +17,23 @@ const HomeContainer = styled.section`
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 20px;
-  max-width: calc(464px - calc(32px + 32px));
+    width: 435px;
+    height: 559px;
+    background: #fff;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+  // max-width: 320px;
+  // max-width: calc(464px - calc(32px + 32px));
   // max-width: 464px;
-  @media (min-width: 1000px) {
-    // padding-top: 30px;
-    max-width: 450px;
+  // @media (min-width: 1000px) {
+  //   // padding-top: 30px;
+  //   max-width: 450px;
   }
+`
+const SubContainer = styled.div`
+  margin-left: 23px;
+  padding-bottom: 26px;
 `
 
 const ButtonCity = styled.button`
@@ -57,8 +68,10 @@ const ImageHeader = styled.img`
     /* padding-left: 163px; */
        width: 33%;
     padding-top: -45px;
-    margin-top: -81px;
-    margin-left: 240px;
+    // margin-top: -81px;
+    // margin-left: 240px;
+        // margin-top: -35px;
+    // margin-left: 247px;
 
 }
     @media(min-width: 1000px) {
@@ -74,19 +87,19 @@ const ButtonNext = styled.button`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 700px;
-  padding-left: 37px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 37px;
+  padding-left: 43px;
+  padding-top: 17px;
+  padding-bottom: 42px;
+  padding-right: 81px;
   width: 100px;
   height: 50px;
   background: #f9a826;
-  box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+  box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
   border-radius: 12px;
   border: none;
-  margin-left: 165px;
+  margin-left: 259px;
   margin-bottom: 15px;
-  margin-top: 24px;
+  margin-top: 18px;
   color: #ffff;
   @media (min-width: 1000px) {
     margin-left: 250px;
@@ -125,9 +138,12 @@ export default function Homepage({
 }) {
   return (
     <HomeContainer>
-      <ImageHeader src={image} />
+      <div className='header'>
+        <h1>Country quiz</h1>
+        <ImageHeader src={image} />
+      </div>
       {randomCountry && (
-        <div>
+        <SubContainer>
           {ques % 2 === 0 ? (
             <div>
               <FlagImage src={randomCountry.flag} />
@@ -173,7 +189,7 @@ export default function Homepage({
               </Link>
             )}
           </div>
-        </div>
+        </SubContainer>
       )}
     </HomeContainer>
   )

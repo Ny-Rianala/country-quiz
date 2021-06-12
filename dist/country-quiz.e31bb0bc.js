@@ -35798,9 +35798,9 @@ const HomeContainer = _styledComponents.default.section`
   position: relative;
   // padding-top: 41px;
   // padding-top: 70px;
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-bottom: 0;
+  // padding-left: 32px;
+  // padding-right: 32px;
+  // padding-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35808,12 +35808,23 @@ const HomeContainer = _styledComponents.default.section`
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 20px;
-  max-width: calc(464px - calc(32px + 32px));
+    width: 435px;
+    height: 559px;
+    background: #fff;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+  // max-width: 320px;
+  // max-width: calc(464px - calc(32px + 32px));
   // max-width: 464px;
-  @media (min-width: 1000px) {
-    // padding-top: 30px;
-    max-width: 450px;
+  // @media (min-width: 1000px) {
+  //   // padding-top: 30px;
+  //   max-width: 450px;
   }
+`;
+const SubContainer = _styledComponents.default.div`
+  margin-left: 23px;
+  padding-bottom: 26px;
 `;
 const ButtonCity = _styledComponents.default.button`
   display: flex;
@@ -35846,8 +35857,10 @@ const ImageHeader = _styledComponents.default.img`
     /* padding-left: 163px; */
        width: 33%;
     padding-top: -45px;
-    margin-top: -81px;
-    margin-left: 240px;
+    // margin-top: -81px;
+    // margin-left: 240px;
+        // margin-top: -35px;
+    // margin-left: 247px;
 
 }
     @media(min-width: 1000px) {
@@ -35862,19 +35875,19 @@ const ButtonNext = _styledComponents.default.button`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 700px;
-  padding-left: 37px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-right: 37px;
+  padding-left: 43px;
+  padding-top: 17px;
+  padding-bottom: 42px;
+  padding-right: 81px;
   width: 100px;
   height: 50px;
   background: #f9a826;
-  box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+  box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
   border-radius: 12px;
   border: none;
-  margin-left: 165px;
+  margin-left: 259px;
   margin-bottom: 15px;
-  margin-top: 24px;
+  margin-top: 18px;
   color: #ffff;
   @media (min-width: 1000px) {
     margin-left: 250px;
@@ -35909,9 +35922,11 @@ function Homepage({
   setNext,
   next
 }) {
-  return /*#__PURE__*/_react.default.createElement(HomeContainer, null, /*#__PURE__*/_react.default.createElement(ImageHeader, {
+  return /*#__PURE__*/_react.default.createElement(HomeContainer, null, /*#__PURE__*/_react.default.createElement("div", {
+    className: "header"
+  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country quiz"), /*#__PURE__*/_react.default.createElement(ImageHeader, {
     src: _undraw_adventure.default
-  }), randomCountry && /*#__PURE__*/_react.default.createElement("div", null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(FlagImage, {
+  })), randomCountry && /*#__PURE__*/_react.default.createElement(SubContainer, null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(FlagImage, {
     src: randomCountry.flag
   }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.sort((a, b) => a.name.length - b.name.length).map(option => {
     return (
@@ -36164,9 +36179,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function App() {
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "header"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "Country quiz")), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Options.default, null)));
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_Options.default, null)));
 }
 
 var _default = App;
@@ -36213,7 +36226,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "38289" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45271" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -4,6 +4,7 @@ import image from './dist/undraw_adventure.svg'
 import styled from 'styled-components'
 
 const HomeContainer = styled.section`
+  height: 583px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -18,6 +19,10 @@ const HomeContainer = styled.section`
   justify-content: center;
   padding-right: 20px;
   margin-top: 30px;
+  @media (min-width: 1000px) {
+      margin-top: 43px;
+      padding-right: 127px;
+    }
   }
 `
 const SubContainer = styled.div`
@@ -33,6 +38,7 @@ const ButtonCity = styled.button`
   font-weight: 500;
   font-size: 18px;
   width: 100%;
+  padding-right: 158px;
   height: 60px;
   border: 1px solid #6066d0;
   border-radius: 12px;
@@ -51,10 +57,10 @@ const ImageHeader = styled.img`
 
 }
     @media(min-width: 1000px) {
-      width: 60%;
+      width: 50%;
       position: absolute;
-      top: 18px;
-      left: 299px;
+      top: 30px;
+      left: 284px;
     }
 }
 `
@@ -76,9 +82,10 @@ const ButtonNext = styled.button`
   position: absolute;
   bottom: 2%;
   right: 6%;
-  // @media (min-width: 1000px) {
-  //   margin-left: 250px;
-  // }
+  @media (min-width: 1000px) {
+    bottom: 3%;
+    right: 10%;
+  }
 `
 
 const FlagImage = styled.img`
@@ -92,15 +99,18 @@ const FlagImage = styled.img`
 
 const SubHeader = styled.h2`
   font-family: Poppins;
-  font-weight: 700px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
   color: #2f527b;
-  font-size: 18px;
-  line-height: 32px;
   padding-right: 10px;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 12px;
   padding-bottom: 20px;
+
+  }
 `
 
 export default function Homepage({
@@ -123,12 +133,12 @@ export default function Homepage({
       {randomCountry && (
         <SubContainer>
           {ques % 2 === 0 ? (
-            <div>
+            <div className='question'>
               <FlagImage src={randomCountry.flag} />
               <SubHeader>What country does this flag belong to?</SubHeader>
             </div>
           ) : (
-            <h2>{randomCountry.capital} is the capital of?</h2>
+            <SubHeader>{randomCountry.capital} is the capital of?</SubHeader>
           )}
           <form>
             {randomOptions &&

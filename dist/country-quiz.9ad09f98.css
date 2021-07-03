@@ -22,9 +22,12 @@ form {
 }
 
 h1 {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
   color: #ffff;
   text-transform: capitalize;
-  font-size: 24px;
   text-transform: uppercase;
 }
 
@@ -208,13 +211,14 @@ span {
 }
 
 @media (min-width: 1000px) {
-  /* h1 {
-    margin-bottom: 70px;
-  } */
+  h1 {
+    font-weight: bold;
+    font-size: 36px;
+  }
   .header {
     position: absolute;
-    top: -57px;
-    left: 13px;
+    top: -90px;
+    left: 6px;
   }
   /* .header img {
     position: absolute;
@@ -232,6 +236,19 @@ span {
     font-family: Poppins;
     margin-top: 0;
     margin-bottom: 0;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 23px;
+    padding-left: 121px;
+    padding-bottom: 23px;
+  }
+  .question {
+    padding-left: 24px;
+    padding-top: 54px;
+    padding-left: 121px;
   }
 }
 

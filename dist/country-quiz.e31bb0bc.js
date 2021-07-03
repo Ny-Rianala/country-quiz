@@ -35795,6 +35795,7 @@ var _styledComponents = _interopRequireDefault(require("styled-components"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const HomeContainer = _styledComponents.default.section`
+  height: 583px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -35809,6 +35810,10 @@ const HomeContainer = _styledComponents.default.section`
   justify-content: center;
   padding-right: 20px;
   margin-top: 30px;
+  @media (min-width: 1000px) {
+      margin-top: 43px;
+      padding-right: 127px;
+    }
   }
 `;
 const SubContainer = _styledComponents.default.div`
@@ -35823,6 +35828,7 @@ const ButtonCity = _styledComponents.default.button`
   font-weight: 500;
   font-size: 18px;
   width: 100%;
+  padding-right: 158px;
   height: 60px;
   border: 1px solid #6066d0;
   border-radius: 12px;
@@ -35840,10 +35846,10 @@ const ImageHeader = _styledComponents.default.img`
 
 }
     @media(min-width: 1000px) {
-      width: 60%;
+      width: 50%;
       position: absolute;
-      top: 18px;
-      left: 299px;
+      top: 30px;
+      left: 284px;
     }
 }
 `;
@@ -35864,9 +35870,10 @@ const ButtonNext = _styledComponents.default.button`
   position: absolute;
   bottom: 2%;
   right: 6%;
-  // @media (min-width: 1000px) {
-  //   margin-left: 250px;
-  // }
+  @media (min-width: 1000px) {
+    bottom: 3%;
+    right: 10%;
+  }
 `;
 const FlagImage = _styledComponents.default.img`
   padding-top: 0;
@@ -35878,15 +35885,18 @@ const FlagImage = _styledComponents.default.img`
 `;
 const SubHeader = _styledComponents.default.h2`
   font-family: Poppins;
-  font-weight: 700px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
   color: #2f527b;
-  font-size: 18px;
-  line-height: 32px;
   padding-right: 10px;
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 12px;
   padding-bottom: 20px;
+
+  }
 `;
 
 function Homepage({
@@ -35904,9 +35914,11 @@ function Homepage({
     className: "header"
   }, /*#__PURE__*/_react.default.createElement("h1", null, "Country quiz"), /*#__PURE__*/_react.default.createElement(ImageHeader, {
     src: _undraw_adventure.default
-  })), randomCountry && /*#__PURE__*/_react.default.createElement(SubContainer, null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(FlagImage, {
+  })), randomCountry && /*#__PURE__*/_react.default.createElement(SubContainer, null, ques % 2 === 0 ? /*#__PURE__*/_react.default.createElement("div", {
+    className: "question"
+  }, /*#__PURE__*/_react.default.createElement(FlagImage, {
     src: randomCountry.flag
-  }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement("h2", null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.sort((a, b) => a.name.length - b.name.length).map(option => {
+  }), /*#__PURE__*/_react.default.createElement(SubHeader, null, "What country does this flag belong to?")) : /*#__PURE__*/_react.default.createElement(SubHeader, null, randomCountry.capital, " is the capital of?"), /*#__PURE__*/_react.default.createElement("form", null, randomOptions && randomOptions.sort((a, b) => a.name.length - b.name.length).map(option => {
     return /*#__PURE__*/_react.default.createElement(ButtonCity, {
       className: "clicked",
       key: option === null || option === void 0 ? void 0 : option.name,

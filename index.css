@@ -84,6 +84,16 @@ h1 {
   padding-bottom: 75px;
 }
 
+.result {
+  font-size: 35px;
+  line-height: 72px;
+  color: #1d355d;
+  font-weight: 700;
+  font-family: Poppins;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 /* .header {
   display: flex;
   justify-content: space-between;
@@ -235,7 +245,7 @@ span {
   font-weight: 700;
 }
 
-.result {
+/* .result {
   font-size: 48px;
   line-height: 72px;
   color: #1d355d;
@@ -243,4 +253,4 @@ span {
   font-family: Poppins;
   margin-top: 0;
   margin-bottom: 0;
-}
+} */

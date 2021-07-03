@@ -12,11 +12,12 @@ const HomeContainer = styled.section`
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 20px;
-    background: #fff;
-    border-radius: 24px;
-    display: flex;
-    justify-content: center;
-    padding-right: 20px;
+  background: #fff;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  padding-right: 20px;
+  margin-top: 30px;
   }
 `
 const SubContainer = styled.div`
@@ -129,7 +130,6 @@ export default function Homepage({
                 .sort((a, b) => a.name.length - b.name.length)
                 .map((option) => {
                   return (
-                    /* <ButtonOption>   */
                     <ButtonCity
                       className='clicked'
                       key={option?.name}
@@ -140,7 +140,6 @@ export default function Homepage({
                       <span></span>
                       {option?.name}
                     </ButtonCity>
-                    /* </ButtonOption> */
                   )
                 })}
           </form>

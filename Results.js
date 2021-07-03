@@ -20,11 +20,21 @@ const ContainerResult = styled.div`
   color: black;
   p {
     font-family: Poppins;
-    font-size: 15px;
+    font-size: 13px;
     color: #1d355d;
-    padding-bottom: 71px;
+    padding-bottom: 30px;
     margin-bottom: 0;
     margin-top: 0;
+  }
+  @media (min-width: 1000px) {
+    p {
+      font-family: Poppins;
+      font-size: 18px;
+      color: #1d355d;
+      padding-bottom: 71px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 `
 
@@ -38,13 +48,28 @@ const ButtonTry = styled.button`
   font-size: 18px;
   border: 2px solid #1d355d;
   padding-top: 18px;
-  padding-left: 61px;
+  padding-left: 40px;
   padding-bottom: 17px;
-  padding-right: 61px;
+  padding-right: 40px;
   border-radius: 12px;
   font-weight: 700;
   font-size: 14px;
   font-family: Poppins;
+  height: 57px;
+  width: -25px;
+  @media (min-width: 1000px) {
+    color: #1d355d;
+    font-size: 18px;
+    border: 2px solid #1d355d;
+    padding-top: 18px;
+    padding-left: 61px;
+    padding-bottom: 17px;
+    padding-right: 61px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    font-family: Poppins;
+  }
 `
 
 function Results({ score, setNext, setScore, setIsDisable, getRandomCountry }) {

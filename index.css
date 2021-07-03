@@ -25,11 +25,9 @@ h1 {
   color: #ffff;
   text-transform: capitalize;
   font-size: 24px;
-  /* margin-bottom: 70px; */
   text-transform: uppercase;
 }
 
-/*Next button needs to be fixed*/
 .header {
   display: flex;
   justify-content: space-between;
@@ -40,17 +38,11 @@ h1 {
   left: -48px;
 }
 
-.header img {
+/* .header img {
   position: absolute;
   top: 47%;
   left: 128%;
-}
-
-@media (min-width: 1000px) {
-  img {
-    width: 20%;
-  }
-}
+} */
 
 #root {
   background-image: url('./background.png');
@@ -66,14 +58,6 @@ h1 {
   margin: auto;
   /* margin-top: 200px; */
 }
-
-/* h1 {
-  color: #ffff;
-  text-transform: capitalize;
-  font-size: 24px;
-  margin-bottom: 70px;
-  text-transform: uppercase;
-} */
 
 .quiz-card {
   background: #fff;
@@ -94,14 +78,6 @@ h1 {
   margin-bottom: 0;
 }
 
-/* .header {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  background-repeat: no-repeat;
-  flex-direction: row;
-  top: 14px;
-} */
 .questionCard {
   width: 400px;
   display: grid;
@@ -166,23 +142,9 @@ h1 {
   background-color: white;
 }
 
-/* .header img {
-  position: absolute;
-  top: 65%;
-  left: 71%;
-} */
-
 .subContainer {
   background-color: red;
 }
-
-/* .correctAnswer {
-    background-color: green;
-} */
-
-/* .wrongAnswer {
-    background-color: red;
-} */
 
 .correctAnswer {
   background-image: url('./dist/check_circle_outline.svg');
@@ -245,12 +207,30 @@ span {
   font-weight: 700;
 }
 
-/* .result {
-  font-size: 48px;
-  line-height: 72px;
-  color: #1d355d;
-  font-weight: 700;
-  font-family: Poppins;
-  margin-top: 0;
-  margin-bottom: 0;
-} */
+@media (min-width: 1000px) {
+  /* h1 {
+    margin-bottom: 70px;
+  } */
+  .header {
+    position: absolute;
+    top: -57px;
+    left: 13px;
+  }
+  /* .header img {
+    position: absolute;
+    top: 107px;
+    left: 237px;
+  } */
+  img {
+    width: 20%;
+  }
+  .result {
+    font-size: 48px;
+    line-height: 72px;
+    color: #1d355d;
+    font-weight: 700;
+    font-family: Poppins;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

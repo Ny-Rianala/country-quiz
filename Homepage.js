@@ -45,14 +45,16 @@ const ButtonCity = styled.button`
 
 const ImageHeader = styled.img`
     width: 44%;
-    padding-top: -45px;
+    position: absolute;
+    top: 32px;
+    right: -135px;
 
 }
     @media(min-width: 1000px) {
-      width: 40%;
-      padding-top: 10px;
-      margin-top: -80px;
-      padding-left: 49px;
+      width: 60%;
+      position: absolute;
+      top: 18px;
+      left: 299px;
     }
 }
 `
@@ -82,6 +84,10 @@ const ButtonNext = styled.button`
 const FlagImage = styled.img`
   padding-top: 0;
   width: 23%;
+  @media (min-width: 1000px) {
+    padding-top: 30px;
+    width: 23%;
+  }
 `
 
 const SubHeader = styled.h2`

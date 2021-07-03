@@ -12,8 +12,6 @@ const HomeContainer = styled.section`
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 20px;
-    // max-width: 500px;
-    // height: 559px;
     background: #fff;
     border-radius: 24px;
     display: flex;
@@ -30,18 +28,17 @@ const ButtonCity = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  place-content: flex-start;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  width: 90%;
-  height: 50px;
+  width: 100%;
+  height: 60px;
   border: 1px solid #6066d0;
   border-radius: 12px;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 19px;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
   color: #6066d0;
 `
 
@@ -63,43 +60,22 @@ const ButtonNext = styled.button`
   font-family: Poppins;
   font-size: 18px;
   font-weight: 700px;
-  padding-left: 43px;
+  padding-left: 35px;
   padding-top: 17px;
-  padding-bottom: 42px;
-  padding-right: 81px;
-  width: 100px;
+  padding-bottom: 40px;
+  padding-right: 35px;
   height: 50px;
   background: #f9a826;
   box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
   border-radius: 12px;
   border: none;
-  /* margin-left: 259px; */
-  /* margin-bottom: 15px; */
-  margin-top: 18px;
   color: #ffff;
   position: absolute;
-  bottom: 0%;
-  right: 8%;
-  // font-family: Poppins;
-  // font-size: 18px;
-  // font-weight: 700px;
-  // padding-left: 43px;
-  // padding-top: 17px;
-  // padding-bottom: 42px;
-  // padding-right: 81px;
-  // width: 100px;
-  // height: 50px;
-  // background: #f9a826;
-  // box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
-  // border-radius: 12px;
-  // border: none;
-  // margin-left: 259px;
-  // margin-bottom: 15px;
-  // margin-top: 18px;
-  // color: #ffff;
-  @media (min-width: 1000px) {
-    margin-left: 250px;
-  }
+  bottom: 2%;
+  right: 6%;
+  // @media (min-width: 1000px) {
+  //   margin-left: 250px;
+  // }
 `
 
 const FlagImage = styled.img`
@@ -111,8 +87,8 @@ const SubHeader = styled.h2`
   font-family: Poppins;
   font-weight: 700px;
   color: #2f527b;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 18px;
+  line-height: 32px;
   padding-right: 10px;
   margin-top: 0;
   margin-bottom: 0;

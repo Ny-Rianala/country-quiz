@@ -46,7 +46,7 @@ const ButtonCity = styled.button`
 `
 
 const ImageHeader = styled.img`
-    width: 33%;
+    width: 44%;
     padding-top: -45px;
 
 }

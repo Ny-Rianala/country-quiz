@@ -35835,7 +35835,7 @@ const ButtonCity = _styledComponents.default.button`
   color: #6066d0;
 `;
 const ImageHeader = _styledComponents.default.img`
-    width: 33%;
+    width: 44%;
     padding-top: -45px;
 
 }

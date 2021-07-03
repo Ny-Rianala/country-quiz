@@ -35796,11 +35796,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const HomeContainer = _styledComponents.default.section`
   position: relative;
-  // padding-top: 41px;
-  // padding-top: 70px;
-  // padding-left: 32px;
-  // padding-right: 32px;
-  // padding-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35808,18 +35803,13 @@ const HomeContainer = _styledComponents.default.section`
   margin-left: 20px;
   margin-right: 20px;
   border-radius: 20px;
-    width: 435px;
-    height: 559px;
+    // max-width: 500px;
+    // height: 559px;
     background: #fff;
     border-radius: 24px;
     display: flex;
     justify-content: center;
-  // max-width: 320px;
-  // max-width: calc(464px - calc(32px + 32px));
-  // max-width: 464px;
-  // @media (min-width: 1000px) {
-  //   // padding-top: 30px;
-  //   max-width: 450px;
+    padding-right: 20px;
   }
 `;
 const SubContainer = _styledComponents.default.div`
@@ -35834,9 +35824,8 @@ const ButtonCity = _styledComponents.default.button`
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  width: 100%;
-  max-width: 400px;
-  height: 56px;
+  width: 90%;
+  height: 50px;
   border: 1px solid #6066d0;
   border-radius: 12px;
   padding-top: 10px;
@@ -35846,21 +35835,8 @@ const ButtonCity = _styledComponents.default.button`
   color: #6066d0;
 `;
 const ImageHeader = _styledComponents.default.img`
-  // top: -17%;
-  // width: 37%;
-  // position: absolute;
-  // left: 63%;
-    // width: 50%;
-    // padding-left: 163px;
-    // padding-top: -45px;
-    // margin-top: -139px;
-    /* padding-left: 163px; */
-       width: 33%;
+    width: 33%;
     padding-top: -45px;
-    // margin-top: -81px;
-    // margin-left: 240px;
-        // margin-top: -35px;
-    // margin-left: 247px;
 
 }
     @media(min-width: 1000px) {
@@ -35885,10 +35861,30 @@ const ButtonNext = _styledComponents.default.button`
   box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
   border-radius: 12px;
   border: none;
-  margin-left: 259px;
-  margin-bottom: 15px;
+  /* margin-left: 259px; */
+  /* margin-bottom: 15px; */
   margin-top: 18px;
   color: #ffff;
+  position: absolute;
+  bottom: 0%;
+  right: 8%;
+  // font-family: Poppins;
+  // font-size: 18px;
+  // font-weight: 700px;
+  // padding-left: 43px;
+  // padding-top: 17px;
+  // padding-bottom: 42px;
+  // padding-right: 81px;
+  // width: 100px;
+  // height: 50px;
+  // background: #f9a826;
+  // box-shadow: 0px 2px 4px rgb(252 168 47 / 40%);
+  // border-radius: 12px;
+  // border: none;
+  // margin-left: 259px;
+  // margin-bottom: 15px;
+  // margin-top: 18px;
+  // color: #ffff;
   @media (min-width: 1000px) {
     margin-left: 250px;
   }
@@ -35903,7 +35899,6 @@ const SubHeader = _styledComponents.default.h2`
   color: #2f527b;
   font-size: 24px;
   line-height: 36px;
-  // padding-left: 23px;
   padding-right: 10px;
   margin-top: 0;
   margin-bottom: 0;
@@ -36226,7 +36221,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45271" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "39873" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
